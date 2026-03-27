@@ -1,7 +1,14 @@
 FROM php:8.2-apache
 
-# Installer extensions PHP nécessaires
-RUN apt-get update && apt-get install -y libpq-dev unzip git && docker-php-ext-install pdo pdo_pgsql pgsql
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
+    && docker-php-ext-install pdo pdo_pgsql pdo_mysql mysqli
+
+    # 
 
 # Activer mod_rewrite
 RUN a2enmod rewrite
