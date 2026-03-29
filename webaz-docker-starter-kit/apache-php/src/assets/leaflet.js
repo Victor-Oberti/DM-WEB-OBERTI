@@ -59,7 +59,7 @@ Vue.createApp({
             const lon = parseFloat(result[i].lon);
             const lat = parseFloat(result[i].lat);
             const marker = L.marker([lat, lon]);
-            marker.bindPopup(result[i].nom);
+            marker.bindPopup(result[i].nom + " (" + result[i].surface + " km²)");
             markersGroup.addLayer(marker)
             bounds.extend(marker.getLatLng());
           }
@@ -81,7 +81,7 @@ Vue.createApp({
             const lon = parseFloat(result[i].lon);
             const lat = parseFloat(result[i].lat);
             const marker = L.marker([lat, lon]);
-            marker.bindPopup(result[i].nom);
+            marker.bindPopup(result[i].nom+ " (" + result[i].surface + " km²)");
             markersGroup.addLayer(marker)
             bounds.extend(marker.getLatLng());
           }
@@ -103,7 +103,7 @@ Vue.createApp({
             const lon = parseFloat(result[i].lon);
             const lat = parseFloat(result[i].lat);
             const marker = L.marker([lat, lon]);
-            marker.bindPopup(result[i].nom);
+            marker.bindPopup(result[i].nom+ " (" + result[i].surface + " km²)");
             markersGroup.addLayer(marker)
             bounds.extend(marker.getLatLng());
           }
@@ -125,7 +125,7 @@ Vue.createApp({
             const lon = parseFloat(result[i].lon);
             const lat = parseFloat(result[i].lat);
             const marker = L.marker([lat, lon]);
-            marker.bindPopup(result[i].nom);
+            marker.bindPopup(result[i].nom + " (" + result[i].surface + " km²)");
             markersGroup.addLayer(marker)
             bounds.extend(marker.getLatLng());
           }

@@ -35,13 +35,13 @@ Flight::route('/ville2france', function() {
         $input_lettres = $_GET['input_lettres'];
         
         if ($choix === 'commence') {
-            $sql = "SELECT nom, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '$input_lettres%'"
+            $sql = "SELECT nom, surface, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '$input_lettres%'"
             . " AND geometry IS NOT NULL AND ST_IsValid(geometry) =1";
         } elseif ($choix === 'termine') {
-            $sql = "SELECT nom, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '%$input_lettres'"
+            $sql = "SELECT nom, surface, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '%$input_lettres'"
             . " AND geometry IS NOT NULL AND ST_IsValid(geometry) =1";
         } elseif ($choix === 'contient') {
-            $sql = "SELECT nom, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '%$input_lettres%'"
+            $sql = "SELECT nom, surface, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '%$input_lettres%'"
             . " AND geometry IS NOT NULL AND ST_IsValid(geometry) =1";
         } else {
             Flight::json(['error' => 'Invalid choice parameter']);
