@@ -6,6 +6,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 let markersGroup = L.layerGroup().addTo(map);
+let bounds = L.latLngBounds();
 
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log(position.coords.latitude, position.coords.longitude, position.coords.altitude);
@@ -35,6 +36,7 @@ Vue.createApp({
 
     methods :{
     points(){
+        markersGroup.clearLayers();
         console.log(this.url)
         fetch(this.url)
         .then(result => result.json())   
@@ -46,7 +48,9 @@ Vue.createApp({
             const marker = L.marker([lat, lon]);
             marker.bindPopup(result[i].nom);
             markersGroup.addLayer(marker)
+            bounds.extend(marker.getLatLng());
           }
+          map.fitBounds(bounds);
         })
     }
 }
