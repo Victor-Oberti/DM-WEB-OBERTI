@@ -5,8 +5,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-
-let geomCommune = L.geoJSON().addTo(map);
+let markersGroup = L.layerGroup().addTo(map);
 
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log(position.coords.latitude, position.coords.longitude, position.coords.altitude);
@@ -17,31 +16,41 @@ navigator.geolocation.watchPosition(function (position) {
 });
 
 
+
+
+
 Vue.createApp({
-  data() {
-    return {
-      message: 'Hello Vue !',
-    };
-  },
-}).mount('#app');
+    data() {
+        return {
+            choix : 'commence',
+            input_lettres : ''
+        };
+    },
 
+    computed :{
+        url(){
+            return 'http://localhost:1234/ville2france?choix=' + this.choix + '&input_lettres=' + this.input_lettres
+        }
+    },
 
-// Vue.createApp({
-//     data() {
-//         return {
-//             communes: [],
-//             text : ''
-//         };
-//     },
-
-//     computed :{},
-
-//     methods :{
-//         fetch()
-//         .then(function(){
-//             )
-
-// }).mount();
+    methods :{
+    points(){
+        console.log(this.url)
+        fetch(this.url)
+        .then(result => result.json())   
+        .then((result) => {
+        console.log(result);
+          for (let i = 0; i < result.length; i++) {
+            const lon = parseFloat(result[i].lon);
+            const lat = parseFloat(result[i].lat);
+            const marker = L.marker([lat, lon]);
+            marker.bindPopup(result[i].nom);
+            markersGroup.addLayer(marker)
+          }
+        })
+    }
+}
+}).mount('#entete');
 
 
 

@@ -47,12 +47,14 @@ Flight::route('/ville2france', function() {
             return;
         }
         $query = mysqli_query(Flight::get('geobase'), $sql);
-        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        foreach ($query as $result) {
+            $données[]=$result
+        ;};
     } else {
         Flight::render('ville2france');
         return;
     }
-    Flight::json($result);
+    Flight::json($données);
 });
 
 

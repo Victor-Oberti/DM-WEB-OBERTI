@@ -17,31 +17,29 @@
 <p>Faites votre choix</p>
 
 
+<div id=entete>
+<form action="" @submit.prevent="points">
 
-<form action="" @submit.prevent="lettres">
-
-<select name="choix">
+<select v-model ="choix">
   <option value="commence" selected>commence par</option>
   <option value="termine" >termine par</option>
   <option value="contient">contient</option>
 </select>
 
-<input type="text" name="input_lettres">
-<input type="submit" value="Rechercher">
+<input type="text" v-model="input_lettres">
+<button @click="points">Rechercher</button>
 </form>
+</div>
+
+ <div id="map"></div>
 
 
- <div id="map">
+ 
  <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 
- </div>
-
-<div id="app">
-  {{ message }}
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
