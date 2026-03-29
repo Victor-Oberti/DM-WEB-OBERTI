@@ -29,9 +29,14 @@
 <input type="text" v-model="input_lettres">
 <button @click="points">Rechercher</button>
 </form>
+
+<button @click="preset1">Villes commençant par "Mont"</button>
+<button @click="preset2">Villes contenant "ker"</button>
+<button @click="preset3">Villes terminant par "ville"</button>
+
 </div>
 
- <div id="map"></div>
+ <div id="map"></div>   
 
 
  
