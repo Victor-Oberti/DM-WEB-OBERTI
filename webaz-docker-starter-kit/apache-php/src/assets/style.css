@@ -1,13 +1,40 @@
 
 html,
 body {
+  background-image: url(plus-grandes-villes-de-france.jpg);
+  background-size: cover;
   margin: 0;
   height: 100%;
 }
 
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+h1{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2.5em;
+    background-color: rgb(12, 223, 223);
+    margin-top: auto;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: rgb(12, 223, 223);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    justify-content: center;    
+}
+
+#bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
 }

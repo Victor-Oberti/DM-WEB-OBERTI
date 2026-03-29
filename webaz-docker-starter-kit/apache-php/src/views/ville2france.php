@@ -14,7 +14,7 @@
 
 <body>
 
-<h1>Explorez les villes de France</h1>
+<h1><a href="/">Explorez les villes de France</a></h1>
 
 <h3>Faites votre choix :</h3>
 

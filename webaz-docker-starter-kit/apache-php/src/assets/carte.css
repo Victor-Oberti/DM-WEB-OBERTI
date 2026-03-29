@@ -11,6 +11,12 @@ h1 {
     margin-bottom: 10px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
 body{
     min-height: 100vh;
     background-color: rgb(193, 101, 101);
