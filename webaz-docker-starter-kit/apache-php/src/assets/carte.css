@@ -1,0 +1,18 @@
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+p {
+    grid-row: 1;
+}
+
+form {
+    grid-row: 2;
+}
+
+#map {
+    grid-row: 3;
+    min-height: 400px;
+}
