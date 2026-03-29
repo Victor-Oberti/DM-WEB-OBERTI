@@ -9,34 +9,39 @@
     crossorigin=""/>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <link rel="stylesheet" href="assets/carte.css">
-
-
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icon.png" />
 </head>
+
 <body>
 
-<p>Faites votre choix</p>
+<h1>Explorez les villes de France</h1>
+
+<h3>Faites votre choix :</h3>
 
 
 <div id=entete>
-<form action="" @submit.prevent="points">
+    <form action="" @submit.prevent="points">
 
-<select v-model ="choix">
-  <option value="commence" selected>commence par</option>
-  <option value="termine" >termine par</option>
-  <option value="contient">contient</option>
-</select>
+    <select v-model ="choix">
+    <option value="commence" selected>commence par</option>
+    <option value="termine" >termine par</option>
+    <option value="contient">contient</option>
+    </select>
 
-<input type="text" v-model="input_lettres">
-<button @click="points">Rechercher</button>
-</form>
+    <input type="text" v-model="input_lettres">
+    <button @click="points">Rechercher</button>
+    </form>
 
-<button @click="preset1">Villes commençant par "Mont"</button>
-<button @click="preset2">Villes contenant "ker"</button>
-<button @click="preset3">Villes terminant par "ville"</button>
+        <div id=preselect>
+        <button @click="preset1">Villes commençant par "Mont"</button>
+        <button @click="preset2">Villes contenant "ker"</button>
+        <button @click="preset3">Villes terminant par "ville"</button>
+        </div>
 
 </div>
 
  <div id="map"></div>   
+
 
 
  
