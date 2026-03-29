@@ -42,6 +42,10 @@ Vue.createApp({
         .then(result => result.json())   
         .then((result) => {
         console.log(result);
+        if (result.length === 0 || result === 'error' || result === 'Invalid choice parameter') {
+            alert("Aucun résultat trouvé");
+            return;
+        }
           for (let i = 0; i < result.length; i++) {
             const lon = parseFloat(result[i].lon);
             const lat = parseFloat(result[i].lat);

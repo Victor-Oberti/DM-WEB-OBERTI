@@ -29,10 +29,11 @@ Flight::route('/carte', function() {
 });
 
 Flight::route('/ville2france', function() {
+    $donnees = [];
     if (isset($_GET['choix']) && isset($_GET['input_lettres'])) {
         $choix = $_GET['choix'];
         $input_lettres = $_GET['input_lettres'];
-    
+        
         if ($choix === 'commence') {
             $sql = "SELECT nom, ST_X(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lon, ST_Y(ST_GeomFromText(ST_AsText(ST_Centroid(geometry)),4326)) AS lat FROM communes WHERE nom LIKE '$input_lettres%'"
             . " AND geometry IS NOT NULL AND ST_IsValid(geometry) =1";
